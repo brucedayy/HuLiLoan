@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HuLiLoan.BLL.Article>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <style type="text/css">
+        table.articleAdmin {
+            font-family: verdana,arial,sans-serif;
+            font-size: 11px;
+            color: #333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+
+            table.articleAdmin th {
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #666666;
+                background-color: #dedede;
+            }
+
+            table.articleAdmin td {
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #666666;
+                background-color: #ffffff;
+            }
+    </style>
+
+    <table class="articleAdmin">
+        <tr>
+            <th>
+                标题
+            </th>
+            <th>
+                发布时间
+            </th>
+            <th>
+                内容
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PubTime)
+                </td>
+                <td>
+                    @{
+                        if (item.Details.Length >= 50)
+                        {
+                            item.Details.Substring(0, 50);
+                        }
+                        else
+                        {
+                            @item.Details;
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("详情", "Details", new { id = item.Aid }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.Aid })
+                </td>
+            </tr>
+                        }
+
+    </table>
+</body>
+</html>
+

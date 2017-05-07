@@ -1,0 +1,28 @@
+﻿@model HuLiLoan.BLL.LoanCheckUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("返回列表", "Index")
+        <hr />
+        <label><strong>用户名:</strong></label>
+        <label>@Html.DisplayFor(model => model.UserName)</label>
+        <hr />
+        <label><strong>密码:</strong></label>
+        <label>@Html.DisplayFor(model => model.Password)</label>
+        <hr />
+        <label><strong>状态:</strong></label><br />
+        <label>@Html.DisplayFor(model => model.Status)</label>      
+    </div>
+</body>
+</html>

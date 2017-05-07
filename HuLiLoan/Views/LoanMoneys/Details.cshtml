@@ -1,0 +1,38 @@
+﻿@model HuLiLoan.BLL.LoanMoney
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("返回列表", "Index")
+        <hr />
+        <label><strong>编号:</strong></label>
+        <label>@Html.DisplayFor(model => model.Lid)</label>
+        <hr />
+        <label><strong>金额:</strong></label>
+        <label>@Html.DisplayFor(model => model.Money)</label>
+        <hr />
+        <label><strong>生效时间:</strong></label><br />
+        <label>@Html.DisplayFor(model => model.Approvetime)</label>
+        <hr />
+        <label><strong>终止时间:</strong></label>
+        <label>@Html.DisplayFor(model => model.LimitTime)</label>
+        <label><strong>期限:</strong></label>
+        <label>@Html.DisplayFor(model => model.LoanTime)</label>
+        <hr />
+        <label><strong>利息:</strong></label>
+        <label>@Html.DisplayFor(model => model.Interest)</label>
+        <hr />
+        <label><strong>状态:</strong></label>
+        <label>@Html.DisplayFor(model => model.Status)</label>
+</body>
+</html>

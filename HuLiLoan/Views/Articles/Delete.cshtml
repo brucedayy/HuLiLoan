@@ -1,0 +1,35 @@
+﻿@model HuLiLoan.BLL.Article
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div>
+        @Html.ActionLink("返回列表", "Index")
+        <hr />
+        <label><strong>用户:</strong></label>
+        <label>@Html.DisplayFor(model => model.UserName)</label>
+        <hr />
+        <label><strong>标题:</strong></label>
+        <label>@Html.DisplayFor(model => model.Title)</label>
+        <hr />
+        <label><strong>内容:</strong></label><br />
+        <label>@Html.DisplayFor(model => model.Details)</label>
+        <hr />
+        <label><strong>发布时间:</strong></label>
+        <label>@Html.DisplayFor(model => model.PubTime)</label>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="确定删除" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</body>
+</html>

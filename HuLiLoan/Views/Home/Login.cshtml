@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no" />
+    <title>用户登陆</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header"><span class="glyphicon glyphicon-user"></span>用户登录</h1>
+        <form class="form-horizontal" method="post" action="/Home/Login">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <input type="text" name="username" class="form-control" placeholder="用户名/email" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <input type="password" name="password" class="form-control" placeholder="密码" />
+                </div>
+            </div>
+            @*<div class="form-group">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="验证码" style="float:left;max-width:100px;"/>
+                    <label style="float:left;line-height:35px;width:100px;text-align:center">1234</label>
+                </div>
+            </div>*@
+            <div class="form-group">
+                <div class="col-md-3">
+                    <button class="btn btn-primary">登陆</button>
+                    <a href="/Home/Register">还没账户?注册</a>
+                </div>             
+            </div>
+        </form>
+    </div>
+
+    <div id="footer" class="container" style="margin-top:20px;">
+        <nav class="navbar navbar-default">
+            <div class="navbar-inner navbar-content-center">
+                <p class="text-muted credit">
+                    Copyright&copy;香港狐狸科技有限公司
+                </p>
+            </div>
+        </nav>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

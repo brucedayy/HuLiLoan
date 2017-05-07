@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no" />
+    <title>Summernote</title>
+    <link href="~/Content/bootstrap-3.3.5.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/bootstrap-3.3.5.js"></script>
+    <link href="~/summernote/dist/summernote.css" rel="stylesheet" />
+    <script src="~/summernote/dist/summernote.min.js"></script>
+</head>
+<body>
+    <div class="maindiv" style="max-width:1160px;margin:auto;">
+        <div class="container">
+            <div class="divArticle">
+                <label>新闻标题</label>
+                <input id="articleTitle" class="form-control input-sm" style="clear:both;height:30px; margin-top:10px; font-size:16px; border-top:none;border-right:none;border-left:none;border-bottom:2px solid blue; outline:0" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="divArticle" style="margin-top:10px;">
+                <div id="summernote"><p>请输入正文</p></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="" style="margin-top:10px;">
+                <button id="btnPublishArticle" type="button" class="btn btn btn-info" style="width:100px;">发布</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        $('#btnPublishArticle').click(function () {
+            var title = $('#articleTitle').val();
+            var details = $('#summernote').summernote('code');
+            data = new FormData();
+            data.append("title", title);
+            data.append("details", details);
+            console.log(data);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "/News/AddNews",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function () {}
+            });
+        });
+
+
+
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                height: 250,
+                callbacks: {
+                    onImageUpload: function (files) { //the onImageUpload API
+                        img = sendFile(files[0]);
+                    }
+                }
+            });
+        });
+
+        function sendFile(file) {
+            data = new FormData();
+            data.append("file", file);
+            console.log(data);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "/Home/SummerNoteFileUpLoad",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (url) {
+                    $("#summernote").summernote('insertImage', url, 'image name'); // the insertImage API
+                }
+            });
+        }
+    </script>
+</body>
+</html>

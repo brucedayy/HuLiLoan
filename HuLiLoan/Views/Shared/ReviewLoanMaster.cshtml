@@ -1,0 +1,87 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>狐狸贷款后台管理系统</title>
+    <link href="../../Content/easyui.css" rel="stylesheet" />
+    <link href="../../Content/icon.css" rel="stylesheet" />
+    <link href="../../Content/demo.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
+        <span style="font-size:30px;">狐狸贷款管理平台</span>
+    </div>
+    <div data-options="region:'west',split:true,title:'功能区'" style="width:200px;padding:10px;">
+        <div class="easyui-panel" style="padding:5px">
+            <ul class="easyui-tree" data-options="lines:true">
+                <li>
+                    <span>菜单</span>
+                    <ul>
+                        <li data-options="state:'open'">
+                            <span>贷款管理</span>
+                            <ul>
+                                <li>
+                                    <span><a href="/ReviewLoan/LoanCheck">贷款审核</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/ReviewLoan/AllLoan">所有贷款</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/ReviewLoan/AbnLoan">逾期贷款</a></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>论坛管理</span>
+                            <ul>
+                                <li><a href="/Articles/Index">文章处理</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="/ReviewLoan/BBSAdmin">评论处理</a></li>
+                            </ul>
+                        </li>
+                        <li data-options="state:'open'">
+                            <span>用户管理</span>
+                            <ul>
+                                <li>
+                                    <span><a href="/ReviewLoan/UserAdmin">贷款用户</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/ReviewLoan/LoanUserAdmin">审贷用户</a></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>新闻管理</span>
+                            <ul>
+                                <li><a href="/ReviewLoan/PublishNews">发布新闻</a></li>
+                                <li><a href="/ReviewLoan/HistoryAdmin">历史管理</a></li>
+                            </ul>
+                        <li>
+                            <span>系统管理</span>
+                            <ul>
+                                <li><a href="/ReviewLoan/WebLog">网站日志</a></li>
+                                <li><a href="/ReviewLoan/PasswordAdmin"></a>修改密码</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/ReviewLoan/PersonalInfo">个人信息</a></li>
+                <li>退出系统</li>
+            </ul>
+        </div>
+
+    </div>
+    <div data-options="region:'east',split:true,collapsed:true,title:'信息区'" style="width:200px;padding:10px;"></div>
+    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">Copyright&copy2017 香港狐狸科技有限公司</div>
+    <div data-options="region:'center',title:'操作区'">
+     <iframe width="900" height="500" style="background-color:#b6ff00" src="/ReviewLoan/LoanCheck">
+     </iframe>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
